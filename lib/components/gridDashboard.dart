@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:team_up/screens/hackathons.dart';
 import 'package:team_up/screens/homepage.dart';
+import 'package:team_up/screens/profile.dart';
+import 'package:team_up/screens/sidePro.dart';
+import 'package:team_up/screens/teams.dart';
 
 class GridDashboard extends StatelessWidget {
   Items item1 =
-      new Items(title: "Profile", img: "assets/hacker.png", screen: Home());
+      new Items(title: "Profile", img: "assets/hacker.png", screen: Profile());
 
   Items item2 = new Items(
-    title: "Your Teams",
+    title: "Teams",
     img: "assets/team.png",
-    screen: Home(),
+    screen: Team(),
   );
   Items item3 = new Items(
     title: "Hackathons",
     img: "assets/hackathon.png",
-    screen: Home(),
+    screen: Hackathons(),
   );
 
   Items item4 =
@@ -22,7 +26,7 @@ class GridDashboard extends StatelessWidget {
   Items item5 = new Items(
     title: "Side Projects",
     img: "assets/innovation.png",
-    screen: Home(),
+    screen: SideProject(),
   );
   Items item6 =
       new Items(title: "Resources", img: "assets/settings.png", screen: Home());
@@ -37,7 +41,7 @@ class GridDashboard extends StatelessWidget {
       item5,
       item6,
     ];
-    var color = 0xff000000;
+    var color = 0xff696969;
     return Flexible(
       child: GridView.count(
           childAspectRatio: 1.0,

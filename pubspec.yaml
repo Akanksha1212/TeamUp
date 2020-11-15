@@ -17,6 +17,12 @@ dependencies:
   simple_animations: ^2.2.2
   google_fonts: ^1.1.0
   carousel_slider: ^2.3.1
+  add_2_calendar: ^1.4.0
+  csv: ^4.1.0
+  font_awesome_flutter: ^8.10.0
+  url_launcher: ^5.7.10
+  flutter_email_sender: ^3.0.1
+
 
 dev_dependencies:
   flutter_test:

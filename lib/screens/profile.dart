@@ -33,10 +33,10 @@ class ProfileState extends State<Profile> {
             ),
           ),
         ),
-        backgroundColor: Color(0xfffac9c2),
+        backgroundColor: Colors.white,
         body: Container(
             padding: const EdgeInsets.all(20.0),
-            color: Color(0xfffac9c2),
+            color: Colors.white,
             child: new SingleChildScrollView(
               child: new ConstrainedBox(
                 constraints: new BoxConstraints(),
@@ -44,13 +44,13 @@ class ProfileState extends State<Profile> {
                   child: new Center(
                       child: new Column(children: [
                     new CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/user.png'),
+                      backgroundImage: AssetImage('assets/hacker.png'),
                       radius: 50,
                     ),
                     new Padding(padding: EdgeInsets.only(top: 20.0)),
                     new TextFormField(
                       decoration: new InputDecoration(
-                        labelText: "Full Name",
+                        labelText: "Full Name *",
                         fillColor: Colors.white,
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
@@ -72,7 +72,7 @@ class ProfileState extends State<Profile> {
                     new Padding(padding: EdgeInsets.only(top: 20.0)),
                     new TextFormField(
                       decoration: new InputDecoration(
-                        labelText: "Contact Number",
+                        labelText: "Contact Number*",
                         fillColor: Colors.white,
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
@@ -92,151 +92,15 @@ class ProfileState extends State<Profile> {
                       ),
                     ),
                     new Padding(padding: EdgeInsets.only(top: 20.0)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        new Flexible(
-                          child: new TextFormField(
-                            decoration: new InputDecoration(
-                              labelText: "Date of Birth",
-                              fillColor: Colors.white,
-                              border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(25.0),
-                                borderSide: new BorderSide(),
-                              ),
-                            ),
-                            validator: (val) {
-                              if (val.length == 0) {
-                                return "DOB cannot be empty";
-                              } else {
-                                return null;
-                              }
-                            },
-                            keyboardType: TextInputType.datetime,
-                            style: new TextStyle(
-                              fontFamily: "Poppins",
-                            ),
-                          ),
-                        ),
-                        new Padding(padding: EdgeInsets.only(left: 10.0)),
-                        new Flexible(
-                          child: new TextFormField(
-                            decoration: new InputDecoration(
-                              labelText: "Age",
-                              fillColor: Colors.white,
-                              border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(25.0),
-                                borderSide: new BorderSide(),
-                              ),
-                            ),
-                            validator: (val) {
-                              if (val.length == 0) {
-                                return "Age cannot be empty";
-                              } else {
-                                return null;
-                              }
-                            },
-                            keyboardType: TextInputType.number,
-                            style: new TextStyle(
-                              fontFamily: "Poppins",
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    DropDownButtonGender(),
                     new Padding(padding: EdgeInsets.only(top: 20.0)),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            height: 55,
-                            width: MediaQuery.of(context).size.width / 2,
-                            decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.black45, width: 1),
-                              borderRadius: BorderRadius.circular(25.0),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                DropDownButtonGender(),
-                              ],
-                            ),
-                          ),
-                          new Padding(padding: EdgeInsets.only(left: 10.0)),
-                          Container(
-                            height: 55,
-                            width: MediaQuery.of(context).size.width / 3,
-                            decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.black45, width: 1),
-                              borderRadius: BorderRadius.circular(25.0),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                DropDownButtonBlg(),
-                              ],
-                            ),
-                          ),
-                        ]),
-                    new Padding(padding: EdgeInsets.only(top: 20.0)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        new Flexible(
-                          child: new TextFormField(
-                            decoration: new InputDecoration(
-                              labelText: "Height(cm)",
-                              fillColor: Colors.white,
-                              border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(25.0),
-                                borderSide: new BorderSide(),
-                              ),
-                            ),
-                            validator: (val) {
-                              if (val.length == 0) {
-                                return "Height cannot be empty";
-                              } else {
-                                return null;
-                              }
-                            },
-                            keyboardType: TextInputType.number,
-                            style: new TextStyle(
-                              fontFamily: "Poppins",
-                            ),
-                          ),
-                        ),
-                        new Padding(padding: EdgeInsets.only(left: 10.0)),
-                        new Flexible(
-                          child: new TextFormField(
-                            decoration: new InputDecoration(
-                              labelText: "Weight(kg)",
-                              fillColor: Colors.white,
-                              border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(25.0),
-                                borderSide: new BorderSide(),
-                              ),
-                            ),
-                            validator: (val) {
-                              if (val.length == 0) {
-                                return "Weight cannot be empty";
-                              } else {
-                                return null;
-                              }
-                            },
-                            keyboardType: TextInputType.number,
-                            style: new TextStyle(
-                              fontFamily: "Poppins",
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    new Padding(padding: EdgeInsets.only(top: 20.0)),
+                    // Column(
+                    //     crossAxisAlignment: CrossAxisAlignment.stretch,
+                    //     children: [DropDownButtonStack()]),
+                    // new Padding(padding: EdgeInsets.only(top: 20.0)),
                     new TextFormField(
                       decoration: new InputDecoration(
-                        labelText: "Address",
+                        labelText: "Github*",
                         fillColor: Colors.white,
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
@@ -245,7 +109,73 @@ class ProfileState extends State<Profile> {
                       ),
                       validator: (val) {
                         if (val.length == 0) {
-                          return "Weight cannot be empty";
+                          return "This field can not be empty";
+                        } else {
+                          return null;
+                        }
+                      },
+                      keyboardType: TextInputType.url,
+                      style: new TextStyle(
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                    new Padding(padding: EdgeInsets.only(top: 20.0)),
+                    new TextFormField(
+                      decoration: new InputDecoration(
+                        labelText: "Devpost",
+                        fillColor: Colors.white,
+                        border: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: new BorderSide(),
+                        ),
+                      ),
+                      validator: (val) {
+                        if (val.length == 0) {
+                          return "This field can not be empty";
+                        } else {
+                          return null;
+                        }
+                      },
+                      keyboardType: TextInputType.url,
+                      style: new TextStyle(
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                    new Padding(padding: EdgeInsets.only(top: 20.0)),
+                    new TextFormField(
+                      decoration: new InputDecoration(
+                        labelText: "Portfolio",
+                        fillColor: Colors.white,
+                        border: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: new BorderSide(),
+                        ),
+                      ),
+                      validator: (val) {
+                        if (val.length == 0) {
+                          return "This field can not be empty";
+                        } else {
+                          return null;
+                        }
+                      },
+                      keyboardType: TextInputType.url,
+                      style: new TextStyle(
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                    new Padding(padding: EdgeInsets.only(top: 20.0)),
+                    new TextFormField(
+                      decoration: new InputDecoration(
+                        labelText: "Skills*",
+                        fillColor: Colors.white,
+                        border: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: new BorderSide(),
+                        ),
+                      ),
+                      validator: (val) {
+                        if (val.length == 0) {
+                          return "Skills cannot be empty";
                         } else {
                           return null;
                         }
@@ -259,7 +189,7 @@ class ProfileState extends State<Profile> {
                     new Padding(padding: EdgeInsets.only(top: 20.0)),
                     new TextFormField(
                       decoration: new InputDecoration(
-                        labelText: "Allergies(if any, specify)",
+                        labelText: "Short Intro*",
                         fillColor: Colors.white,
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
@@ -275,7 +205,7 @@ class ProfileState extends State<Profile> {
                     new Padding(padding: EdgeInsets.only(top: 20.0)),
                     RaisedButton(
                       child: Text('Save'),
-                      color: Colors.blue[100],
+                      color: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18),
                           side: BorderSide(color: Colors.black)),
@@ -323,19 +253,20 @@ class _DropDownButtonGenderState extends State<DropDownButtonGender> {
   }
 }
 
-class DropDownButtonBlg extends StatefulWidget {
-  DropDownButtonBlg({Key key}) : super(key: key);
+class DropDownButtonStack extends StatefulWidget {
+  DropDownButtonStack({Key key}) : super(key: key);
 
   @override
-  _DropDownButtonBlgState createState() => _DropDownButtonBlgState();
+  _DropDownButtonStackState createState() => _DropDownButtonStackState();
 }
 
-class _DropDownButtonBlgState extends State<DropDownButtonBlg> {
-  String dropdownValue = 'A+';
+class _DropDownButtonStackState extends State<DropDownButtonStack> {
+  String dropdownValue = 'Web Developer';
 
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
       icon: Icon(Icons.arrow_downward),
       iconSize: 24,
@@ -345,8 +276,13 @@ class _DropDownButtonBlgState extends State<DropDownButtonBlg> {
           dropdownValue = newValue;
         });
       },
-      items: <String>['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
-          .map<DropdownMenuItem<String>>((String value) {
+      items: <String>[
+        'Web Dev',
+        'Mobile Dev',
+        'Graphics',
+        'UI/UX',
+        'Product',
+      ].map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value, style: TextStyle(color: Colors.black54)),
