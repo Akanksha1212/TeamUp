@@ -43,12 +43,12 @@ class HackathonsState extends State<Hackathons> {
                 itemCount: csvTable.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    height: 200,
+                    height: 150,
                     child: Card(
                       child: Column(
                         children: [
                           Container(
-                            height: 170,
+                            height: 120,
                             child: ListTile(
                               leading:
                                   Image.asset("assets/images/eye-mask.png"),
@@ -58,27 +58,30 @@ class HackathonsState extends State<Hackathons> {
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 25, vertical: 20),
                               subtitle: Text(
-                                  'Date:4 Nov 2020 Time: 10AM-2PM \nDate:4 Nov 2020 Time: 10AM-2PM'),
+                                  'Start:${csvTable[index][1]} \nEnd:${csvTable[index][2]}'),
                               isThreeLine: true,
                               trailing: Container(
-                                height: 100,
                                 child: Column(children: [
-                                  RaisedButton(
-                                    child: Text('Add to Calendar'),
-                                    color: Colors.pink[100],
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(18),
-                                        side: BorderSide(color: Colors.black)),
-                                    onPressed: () {
-                                      Add2Calendar.addEvent2Cal(event)
-                                          .then((success) {
-                                        scaffoldState.currentState.showSnackBar(
-                                            SnackBar(
-                                                content: Text(success
-                                                    ? 'Success'
-                                                    : 'Error')));
-                                      });
-                                    },
+                                  Container(
+                                    child: RaisedButton(
+                                      child: Text('Add'),
+                                      color: Colors.pink[100],
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(18),
+                                          side:
+                                              BorderSide(color: Colors.black)),
+                                      onPressed: () {
+                                        Add2Calendar.addEvent2Cal(event)
+                                            .then((success) {
+                                          scaffoldState.currentState
+                                              .showSnackBar(SnackBar(
+                                                  content: Text(success
+                                                      ? 'Success'
+                                                      : 'Error')));
+                                        });
+                                      },
+                                    ),
                                   ),
                                 ]),
                               ),

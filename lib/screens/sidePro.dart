@@ -21,10 +21,11 @@ class SideProjectState extends State<SideProject> {
   final List<List<dynamic>> csvTable = new List();
 
   final Email email = Email(
-    body: 'Email body',
-    subject: 'Email subject',
+    body:
+        'Hi! I saw your project on TeamUp and really liked the idea. I am familiar with the tech stack and would love to team up. Please let me if I can join the team . \n\nIf this doesn\'t sound like a good match, let me know or feel free to ignore this request. \n\nThanks @Akanksha',
+    subject: 'Interested in joining your project @TeamUp',
     recipients: ['singhakanksha221b@gmail.com'],
-    cc: ['singhakanksha221b@gmail.com'],
+    cc: ['avni1212@gmail.com'],
     isHTML: false,
   );
   @override
@@ -271,7 +272,7 @@ class SideProjectState extends State<SideProject> {
                                                       BorderRadius.circular(
                                                           20.0)),
                                               child: Container(
-                                                height: 700,
+                                                height: 400,
                                                 child: Padding(
                                                   padding: const EdgeInsets.all(
                                                       12.0),
