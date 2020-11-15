@@ -25,7 +25,7 @@ class SignIn extends StatelessWidget {
               FadeAnimation(
                   1,
                   Text(
-                    "TemUp",
+                    "TeamUp",
                     style: GoogleFonts.abel(
                         textStyle: TextStyle(
                             color: Color(0xFF20124d),

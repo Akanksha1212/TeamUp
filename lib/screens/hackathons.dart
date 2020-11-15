@@ -18,16 +18,17 @@ class HackathonsState extends State<Hackathons> {
   @override
   Widget build(BuildContext context) {
     Event event = Event(
-      title: 'India Music Summit',
-      description: 'Renowned singers will be atteding the event',
-      location: 'Lucknow',
+      title: 'Alexa Skills Challenge',
+      description:
+          'Invent the Next Generation of Alexa Experiences That Go Beyond Voice',
+      location: 'Online',
       startDate: DateTime.now(),
       endDate: DateTime.now().add(Duration(days: 1)),
       allDay: false,
     );
     screenHeight = MediaQuery.of(context).size.height;
     return FutureBuilder<String>(
-        future: rootBundle.loadString('assets/Sheet.csv'), //
+        future: rootBundle.loadString('assets/Hackathon.csv'), //
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           List<List<dynamic>> csvTable =
               CsvToListConverter().convert(snapshot.data);
@@ -92,205 +93,6 @@ class HackathonsState extends State<Hackathons> {
                     ),
                   );
                 }),
-            // body: Container(
-            //   child: new SingleChildScrollView(
-            //     child: new ConstrainedBox(
-            //       constraints: new BoxConstraints(),
-            //       child: new Container(
-            //         child: new Center(
-            //           child: Column(
-            //             children: <Widget>[
-            //               SizedBox(
-            //                 height: 30,
-            //               ),
-            //               // new ListView.builder(
-            //               //     itemCount: csvTable.length,
-            //               //     itemBuilder: (BuildContext ctxt, int index) {
-            //               //       return new Text(csvTable[index][0]);
-            //               //     }),
-
-            //               Column(
-            //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //                 children: [
-            //                   Image(
-            //                     image: AssetImage('assets/images/delivery.png'),
-            //                     height: 100,
-            //                     width: 100,
-            //                   ),
-            //                   SizedBox(
-            //                     height: 5,
-            //                   ),
-            //                   Padding(
-            //                     padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
-            //                     child: Text(
-            //                       '',
-            //                     ),
-            //                   ),
-            //                   SizedBox(
-            //                     height: 10,
-            //                   ),
-            //                 ],
-            //               ),
-            //               Padding(
-            //                 padding: EdgeInsets.only(left: 10, right: 10),
-            //                 child: Column(
-            //                   children: <Widget>[
-            //                     Card(
-            //                       child: ListTile(
-            //                         leading: Image.asset(
-            //                             "assets/images/eye-mask.png"),
-            //                         title: Text(
-            //                           csvTable[1][0],
-            //                         ),
-            //                         contentPadding: EdgeInsets.symmetric(
-            //                             horizontal: 25, vertical: 20),
-            //                         subtitle:
-            //                             Text('Date:4 Nov 2020 Time: 10AM-2PM'),
-            //                         isThreeLine: true,
-            //                         trailing: RaisedButton(
-            //                           child: Text('Add to Calendar'),
-            //                           color: Colors.pink[100],
-            //                           shape: RoundedRectangleBorder(
-            //                               borderRadius:
-            //                                   BorderRadius.circular(18),
-            //                               side:
-            //                                   BorderSide(color: Colors.black)),
-            //                           onPressed: () {
-            //                             Add2Calendar.addEvent2Cal(event)
-            //                                 .then((success) {
-            //                               scaffoldState.currentState
-            //                                   .showSnackBar(SnackBar(
-            //                                       content: Text(success
-            //                                           ? 'Success'
-            //                                           : 'Error')));
-            //                             });
-            //                           },
-            //                         ),
-            //                       ),
-            //                       color: Colors.blue[100],
-            //                       shape: RoundedRectangleBorder(
-            //                         borderRadius: BorderRadius.circular(55),
-            //                       ),
-            //                     ),
-            //                     Card(
-            //                       child: ListTile(
-            //                         leading:
-            //                             Image.asset("assets/images/lights.png"),
-            //                         title: Text('Photo Walk'),
-            //                         contentPadding: EdgeInsets.symmetric(
-            //                             horizontal: 25, vertical: 20),
-            //                         subtitle:
-            //                             Text('Date: 4 April 2021 Time: 3-9PM'),
-            //                         isThreeLine: true,
-            //                         trailing: RaisedButton(
-            //                           child: Text('Add to Calendar'),
-            //                           color: Colors.pink[100],
-            //                           shape: RoundedRectangleBorder(
-            //                               borderRadius:
-            //                                   BorderRadius.circular(18),
-            //                               side:
-            //                                   BorderSide(color: Colors.black)),
-            //                           onPressed: () {
-            //                             Add2Calendar.addEvent2Cal(event)
-            //                                 .then((success) {
-            //                               scaffoldState.currentState
-            //                                   .showSnackBar(SnackBar(
-            //                                       content: Text(success
-            //                                           ? 'Success'
-            //                                           : 'Error')));
-            //                             });
-            //                           },
-            //                         ),
-            //                       ),
-            //                       color: Colors.blue[100],
-            //                       shape: RoundedRectangleBorder(
-            //                         borderRadius: BorderRadius.circular(55),
-            //                       ),
-            //                     ),
-            //                     Card(
-            //                       child: ListTile(
-            //                         leading:
-            //                             Image.asset("assets/images/flower.png"),
-            //                         title: Text('Old is Gold'),
-            //                         contentPadding: EdgeInsets.symmetric(
-            //                             horizontal: 25, vertical: 20),
-            //                         subtitle:
-            //                             Text('Date: 30 Dec 2020 Time: 4-5PM'),
-            //                         isThreeLine: true,
-            //                         trailing: RaisedButton(
-            //                           child: Text('Add to Calendar'),
-            //                           color: Colors.pink[100],
-            //                           shape: RoundedRectangleBorder(
-            //                               borderRadius:
-            //                                   BorderRadius.circular(18),
-            //                               side:
-            //                                   BorderSide(color: Colors.black)),
-            //                           onPressed: () {
-            //                             Add2Calendar.addEvent2Cal(event)
-            //                                 .then((success) {
-            //                               scaffoldState.currentState
-            //                                   .showSnackBar(SnackBar(
-            //                                       content: Text(success
-            //                                           ? 'Success'
-            //                                           : 'Error')));
-            //                             });
-            //                           },
-            //                         ),
-            //                       ),
-            //                       color: Colors.blue[100],
-            //                       shape: RoundedRectangleBorder(
-            //                         borderRadius: BorderRadius.circular(55),
-            //                       ),
-            //                     ),
-            //                     Card(
-            //                       child: ListTile(
-            //                         leading: Image.asset(
-            //                             "assets/images/eye-mask.png"),
-            //                         title:
-            //                             Text('Kathak Performance by Ms. Madhu'),
-            //                         contentPadding: EdgeInsets.symmetric(
-            //                             horizontal: 25, vertical: 20),
-            //                         subtitle:
-            //                             Text('Date: 2 Dec 2020 Time: 2-4PM'),
-            //                         isThreeLine: true,
-            //                         trailing: RaisedButton(
-            //                           child: Text('Add to Calendar'),
-            //                           color: Colors.pink[100],
-            //                           shape: RoundedRectangleBorder(
-            //                               borderRadius:
-            //                                   BorderRadius.circular(18),
-            //                               side:
-            //                                   BorderSide(color: Colors.black)),
-            //                           onPressed: () {
-            //                             Add2Calendar.addEvent2Cal(event)
-            //                                 .then((success) {
-            //                               scaffoldState.currentState
-            //                                   .showSnackBar(SnackBar(
-            //                                       content: Text(success
-            //                                           ? 'Success'
-            //                                           : 'Error')));
-            //                             });
-            //                           },
-            //                         ),
-            //                       ),
-            //                       color: Colors.blue[100],
-            //                       shape: RoundedRectangleBorder(
-            //                         borderRadius: BorderRadius.circular(55),
-            //                       ),
-            //                     ),
-            //                   ],
-            //                 ),
-            //               ),
-            //               SizedBox(
-            //                 height: 40,
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
           );
         });
   }

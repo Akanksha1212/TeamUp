@@ -16,41 +16,22 @@ class SideProject extends StatefulWidget {
 class SideProjectState extends State<SideProject> {
   double screenHeight;
   final GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
-
+  int index;
   var _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<List<dynamic>> csvTable = new List();
-  List<String> attachments = [];
-  bool isHTML = false;
-  Future<void> send() async {
-    final Email email = Email(
-      body: 'Hi! I am interested in joining your Team',
-      subject: 'Project Joining Request',
-      attachmentPaths: attachments,
-      recipients: ['singhakanksha221b@gmail.com'],
-      isHTML: isHTML,
-    );
 
-    String platformResponse;
-
-    try {
-      await FlutterEmailSender.send(email);
-      platformResponse = 'success';
-    } catch (error) {
-      platformResponse = error.toString();
-    }
-
-    if (!mounted) return;
-
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text(platformResponse),
-    ));
-  }
-
+  final Email email = Email(
+    body: 'Email body',
+    subject: 'Email subject',
+    recipients: ['singhakanksha221b@gmail.com'],
+    cc: ['singhakanksha221b@gmail.com'],
+    isHTML: false,
+  );
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     return FutureBuilder<String>(
-        future: rootBundle.loadString('assets/Sheet.csv'), //
+        future: rootBundle.loadString('assets/Side.csv'), //
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           List<List<dynamic>> csvTable =
               CsvToListConverter().convert(snapshot.data);
@@ -267,7 +248,7 @@ class SideProjectState extends State<SideProject> {
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                         subtitle: Text(
-                            'Lead :${csvTable[index][0]} \nCategory :${csvTable[index][0]}'),
+                            'Lead :${csvTable[index][2]} \nCategory :${csvTable[index][3]}'),
                         isThreeLine: true,
                         trailing: RaisedButton(
                             child: Text('More'),
@@ -300,17 +281,19 @@ class SideProjectState extends State<SideProject> {
                                                           padding:
                                                               EdgeInsets.only(
                                                                   top: 20.0)),
-                                                      Text('Project Details'),
+                                                      Text('Project Details '),
                                                       new Padding(
                                                           padding:
                                                               EdgeInsets.only(
                                                                   top: 20.0)),
-                                                      Text('Project Name :'),
+                                                      Text(
+                                                          'Project Name :${csvTable[index][0]}'),
                                                       new Padding(
                                                           padding:
                                                               EdgeInsets.only(
                                                                   top: 20.0)),
-                                                      Text('Tech Stack :'),
+                                                      Text(
+                                                          'Tech Stack :${csvTable[index][1]}'),
                                                       new Padding(
                                                           padding:
                                                               EdgeInsets.only(
@@ -323,7 +306,7 @@ class SideProjectState extends State<SideProject> {
                                                           ),
                                                           onPressed: () async {
                                                             const url =
-                                                                'https://github.com/Akanksha1212';
+                                                                'https://github.com/Akanksha1212/Dost';
                                                             if (await canLaunch(
                                                                 url)) {
                                                               await launch(url);
@@ -335,14 +318,15 @@ class SideProjectState extends State<SideProject> {
                                                           padding:
                                                               EdgeInsets.only(
                                                                   top: 20.0)),
-                                                      Text('Description: '),
+                                                      Text(
+                                                          'Description:${csvTable[index][5]} '),
                                                       new Padding(
                                                           padding:
                                                               EdgeInsets.only(
                                                                   top: 20.0)),
                                                       // DropDownButtonStack(),
                                                       Text(
-                                                          'We are looking for '),
+                                                          'We are looking for ${csvTable[index][6]}'),
                                                       new Padding(
                                                           padding:
                                                               EdgeInsets.only(
@@ -350,7 +334,10 @@ class SideProjectState extends State<SideProject> {
                                                       SizedBox(
                                                         width: 320.0,
                                                         child: RaisedButton(
-                                                          onPressed: send,
+                                                          onPressed: () {
+                                                            FlutterEmailSender
+                                                                .send(email);
+                                                          },
                                                           child: Text(
                                                             "Join",
                                                             style: TextStyle(
