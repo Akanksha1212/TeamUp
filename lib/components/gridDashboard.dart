@@ -13,7 +13,7 @@ class GridDashboard extends StatelessWidget {
   );
   Items item3 = new Items(
     title: "Hackathons",
-    img: "assets/brainstorm.png",
+    img: "assets/hackathon.png",
     screen: Home(),
   );
 
@@ -21,11 +21,11 @@ class GridDashboard extends StatelessWidget {
       new Items(title: "SkillUp", img: "assets/head.png", screen: Home());
   Items item5 = new Items(
     title: "Side Projects",
-    img: "assets/badge.png",
+    img: "assets/innovation.png",
     screen: Home(),
   );
   Items item6 =
-      new Items(title: "Resources", img: "assets/campaign.png", screen: Home());
+      new Items(title: "Resources", img: "assets/settings.png", screen: Home());
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,9 @@ class GridDashboard extends StatelessWidget {
             return GestureDetector(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color(color),
-                  borderRadius: BorderRadius.circular(10),
-                ),
+                    color: Color(color),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Color(0xFF4AF626))),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -68,7 +68,7 @@ class GridDashboard extends StatelessWidget {
                           textStyle: TextStyle(
                               color: Color(0xFF4AF626),
                               fontSize: 17,
-                              fontWeight: FontWeight.w600)),
+                              fontWeight: FontWeight.w100)),
                     ),
                     SizedBox(
                       height: 8,

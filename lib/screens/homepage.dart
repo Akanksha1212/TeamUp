@@ -18,7 +18,7 @@ class HomeState extends State<Home> {
     screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black26,
       // #ffb8c5 #ff6e8d #ff8ba4
       appBar: AppBar(
         elevation: 4,
@@ -47,27 +47,41 @@ class HomeState extends State<Home> {
             height: 10,
           ),
           Card(
-            child: ListTile(
-              leading: Image.asset("assets/my.png"),
-              title: Text('sories from others'),
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-              // subtitle: Text('Play these games to improve your focus'),
-              // isThreeLine: true,
-              trailing: RaisedButton(
-                  child: Text('Read'),
-                  color: Color(0xffd6b3dd),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
-                      side: BorderSide(color: Colors.black)),
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => QuizScreen()),
-                    // );
-                  }),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Color(0xFF4AF626))),
+              child: ListTile(
+                leading: Image.asset("assets/my.png"),
+                title: Text(
+                  'sories from others',
+                  style: GoogleFonts.abel(
+                      textStyle: TextStyle(color: Color(0xFF4AF626))),
+                ),
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                // subtitle: Text('Play these games to improve your focus'),
+                // isThreeLine: true,
+                trailing: RaisedButton(
+                    child: Text(
+                      'Read',
+                      style: GoogleFonts.abel(
+                          textStyle: TextStyle(color: Colors.black)),
+                    ),
+                    color: Color(0xFF4AF626),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.black)),
+                    onPressed: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => QuizScreen()),
+                      // );
+                    }),
+              ),
             ),
-            color: Color(0xfff3e8f5),
+            color: Colors.black,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25),
             ),
